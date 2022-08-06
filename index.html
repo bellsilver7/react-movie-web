@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,28 +14,22 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
+    function App() {
+      const [counter, setCounter] = React.useState(0);
 
-    function Title() {
+      const handleClick = () => {
+        setCounter(counter + 1);
+        console.log("clicked!", counter);
+      };
+
       return (
-        <h3 id="title" onMouseEnter={() => console.log("Mouse over")}>
-          Hello I'm a title
-        </h3>
+        <div>
+          <span>Total clicks: {counter}</span>
+          <button onClick={handleClick}>Click</button>
+        </div>
       );
     }
-    const Button = () => (
-      <button
-        style={{ backgroundColor: "tomato" }}
-        onClick={() => console.log("I'm clicked")}
-      >
-        Click me
-      </button>
-    );
-    const Container = () => (
-      <div>
-        <Title />
-        <Button />
-      </div>
-    );
-    ReactDOM.render(<Container />, root);
+
+    ReactDOM.render(<App />, root);
   </script>
 </html>
