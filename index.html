@@ -9,23 +9,44 @@
   <body>
     <div id="root"></div>
   </body>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const root = document.getElementById("root");
     function App() {
-      const [counter, setCounter] = React.useState(0);
-      const handleClick = () => {
-        setCounter((current) => current + 1);
+      const [minutes, setMinutes] = React.useState(0);
+      const onChange = (event) => {
+        setMinutes(event.target.value);
+      };
+      const reset = () => {
+        setMinutes(0);
       };
       return (
         <div>
-          <span>Total clicks: {counter}</span>
-          <button onClick={handleClick}>Click</button>
+          <h1 className="hi">Super Converter</h1>
+          <label htmlFor="minutes">Minutes</label>
+          <input
+            value={minutes}
+            id="minutes"
+            placeholder="Minutes"
+            type="number"
+            onChange={onChange}
+          />
+          <label htmlFor="hours">Hours</label>
+          <input
+            value={Math.round(minutes / 60)}
+            disabled
+            id="hours"
+            placeholder="Hours"
+            type="number"
+          />
+          <button onClick={reset}>Reset</button>
         </div>
       );
     }
-    ReactDOM.render(<App />, root);
+    const root = document.getElementById("root");
+    // ReactDOM.render(<App />, root);
+    const dom = ReactDOM.createRoot(root);
+    dom.render(<App />);
   </script>
 </html>
