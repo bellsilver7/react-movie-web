@@ -13,7 +13,7 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn(props) {
+    function Btn({ text }) {
       return (
         <button
           style={{
@@ -24,7 +24,7 @@
             borderRadius: 10,
           }}
         >
-          {props.text}
+          {text}
         </button>
       );
     }
