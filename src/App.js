@@ -1,32 +1,26 @@
 import { useState, useEffect } from "react";
 
-function App() {
-  const [counter, setValue] = useState(0);
-  const [keyword, setKeyword] = useState("");
-  const onClick = () => setValue((prev) => prev + 1);
-  const onChange = (event) => setKeyword(event.target.value);
-  console.log("I run all the time.");
+function Hello() {
+  const hiFn = () => {
+    console.log("Hi :)");
+    return byFn;
+  };
+  const byFn = () => console.log("By :(");
+  useEffect(hiFn, []);
+
   useEffect(() => {
-    console.log("I run only once.");
+    console.log("created :)");
+    return () => console.log("destroy :(");
   }, []);
-  useEffect(() => {
-    console.log("I run when 'counter' changes.");
-  }, [counter]);
-  useEffect(() => {
-    console.log("I run when 'keyword' changes.");
-  }, [keyword]);
-  useEffect(() => {
-    console.log("I run when 'counter' & 'keyword' changes.");
-  }, [counter, keyword]);
+  return <h1>Hello</h1>;
+}
+
+function App() {
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing((prev) => !prev);
   return (
-    <div className="App">
-      <input
-        value={keyword}
-        onChange={onChange}
-        type="text"
-        placeholder="Search here..."
-      />
-      <h1>{counter}</h1>
+    <div>
+      {showing ? <Hello /> : null}
       <button onClick={onClick}>click me</button>
     </div>
   );
