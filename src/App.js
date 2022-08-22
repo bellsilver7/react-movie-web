@@ -28,8 +28,8 @@ function App() {
       </form>
       <hr />
       <ul>
-        {todos.map((item) => (
-          <li>{item}</li>
+        {todos.map((item, index) => (
+          <li key={index}>{item}</li>
         ))}
       </ul>
     </div>
