@@ -1,27 +1,16 @@
-import { useState, useEffect } from "react";
-
-function Hello() {
-  const hiFn = () => {
-    console.log("Hi :)");
-    return byFn;
-  };
-  const byFn = () => console.log("By :(");
-  useEffect(hiFn, []);
-
-  useEffect(() => {
-    console.log("created :)");
-    return () => console.log("destroy :(");
-  }, []);
-  return <h1>Hello</h1>;
-}
+import { useState } from "react";
 
 function App() {
-  const [showing, setShowing] = useState(false);
-  const onClick = () => setShowing((prev) => !prev);
+  const [todo, setTodo] = useState("");
+  const onChange = (event) => setTodo(event.target.value);
   return (
     <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>click me</button>
+      <input
+        onChange={onChange}
+        value={todo}
+        type="text"
+        placeholder="Write your to do..."
+      />
     </div>
   );
 }
