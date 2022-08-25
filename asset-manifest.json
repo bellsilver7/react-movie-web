@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/bellsilver7/react-movie-web/static/js/main.485b0d31.js",
-    "index.html": "/bellsilver7/react-movie-web/index.html",
-    "main.485b0d31.js.map": "/bellsilver7/react-movie-web/static/js/main.485b0d31.js.map"
+    "main.js": "/react-movie-web/static/js/main.485b0d31.js",
+    "index.html": "/react-movie-web/index.html",
+    "main.485b0d31.js.map": "/react-movie-web/static/js/main.485b0d31.js.map"
   },
   "entrypoints": [
     "static/js/main.485b0d31.js"
