@@ -13,7 +13,7 @@ function App() {
     };
   }, []);
   return (
-    <div class="container mx-auto">
+    <div className="container mx-auto">
       <Router>
         <Switch>
           <Route path="/movie/:id">

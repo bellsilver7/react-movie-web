@@ -18,19 +18,23 @@ function Home() {
     getMovies();
   }, []);
   return (
-    <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-      {loading
-        ? "Loading..."
-        : movies.map((movie) => (
+    <div>
+      {loading ? (
+        <div className="text-white text-center">Loading...</div>
+      ) : (
+        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          {movies.map((movie) => (
             <Movie
               key={movie.id}
               id={movie.id}
               coverImg={movie.medium_cover_image}
               title={movie.title}
-              summary={movie.summary}
+              rating={movie.rating}
               genres={movie.genres}
             />
           ))}
+        </div>
+      )}
     </div>
   );
 }
