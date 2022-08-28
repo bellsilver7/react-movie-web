@@ -40,5 +40,10 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://bellsilver7.github.io/react-movie-web"
+  "homepage": "https://bellsilver7.github.io/react-movie-web",
+  "devDependencies": {
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
+  }
 }
