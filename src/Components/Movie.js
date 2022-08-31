@@ -1,25 +1,31 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Movie = ({ id, coverImg, title, rating, genres }) => {
+const Movie = ({ id, coverImg, title, summary, rating, genres }) => {
   return (
-    <div className="group relative">
-      <div className="mt-6 w-full min-h-80 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-        <img
-          src={coverImg}
-          alt={title}
-          className="w-full h-full object-center object-cover lg:w-full lg:h-full"
-        />
+    <>
+      <div class="flex justify-center">
+        <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+          <img
+            src={coverImg}
+            alt={title}
+            class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+          />
+          <div class="p-6 flex flex-col justify-start">
+            <h5 class="text-gray-900 text-xl font-medium mb-2">
+              <Link to={`/movie/${id}`}>{title}</Link>
+            </h5>
+            <p class="text-gray-700 text-base mb-4">
+              {summary.slice(0, 80)}...
+            </p>
+            <p class="text-gray-600 text-xs">
+              {" "}
+              ☆{rating} | {genres.map((g) => "#" + g).join(" ")}
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="mt-4 justify-between">
-        <h3 className="text-white">
-          <Link to={`/movie/${id}`}>{title}</Link>
-        </h3>
-        <p className="text-xs mt-1 text-gray-400">
-          ☆{rating} | {genres.map((g) => "#" + g).join(" ")}
-        </p>
-      </div>
-    </div>
+    </>
   );
 };
 
@@ -27,6 +33,7 @@ Movie.propTypes = {
   id: PropTypes.number.isRequired,
   coverImg: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
