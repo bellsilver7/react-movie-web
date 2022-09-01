@@ -1,5 +1,8 @@
+/* eslint-disable react/style-prop-object */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from "react";
 import Movie from "../components/Movie";
+import Nav from "../components/Nav";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -18,7 +21,8 @@ function Home() {
     getMovies();
   }, []);
   return (
-    <div>
+    <div className="">
+      <Nav />
       {loading ? (
         <div className="text-white text-center">Loading...</div>
       ) : (
