@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Nav from "../components/Nav";
 
 function separateComma(val) {
   // remove sign if negative
@@ -51,8 +50,7 @@ function Detail() {
   }, []);
 
   return (
-    <div>
-      <Nav />
+    <>
       {loading ? (
         "Loading..."
       ) : (
@@ -97,7 +95,7 @@ function Detail() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
