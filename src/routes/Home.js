@@ -20,7 +20,7 @@ function Home() {
     getMovies();
   }, []);
   return (
-    <div>
+    <div className="px-4">
       {loading ? (
         <div className="text-white text-center">Loading...</div>
       ) : (
