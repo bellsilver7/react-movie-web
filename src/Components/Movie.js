@@ -20,7 +20,8 @@ const Movie = ({ id, coverImg, title, summary, rating, genres }) => {
             </p>
             <p class="text-gray-600 text-xs">
               {" "}
-              ☆{rating} | {genres.map((g) => "#" + g).join(" ")}
+              <span class="text-yellow-400">☆</span>
+              {rating} | {genres.map((g) => "#" + g).join(" ")}
             </p>
           </div>
         </div>
